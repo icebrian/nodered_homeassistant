@@ -1,0 +1,85 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: []
+  name: nodered
+  namespace: nodered
+spec:
+  ports:
+  - name: nameme_01
+    port: 1880
+    protocol: tcp
+    targetPort: 1880
+  selector:
+    app: nodered
+  type: NodePort
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: nodered
+  name: nodered
+  namespace: nodered
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: nodered
+  template:
+    metadata:
+      labels:
+        app: nodered
+      namespace: nodered
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: ${TZ}
+        image: nodered/node-red
+        imagePullPolicy: IfNotPresent
+        name: node-red
+        ports:
+        - containerPort: 1880
+          name: nodered
+          protocol: tcp
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      terminationGracePeriodSeconds: 0
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations: []
+  name: data
+  namespace: nodered
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: data
+    type: Directory
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations: []
+  name: data
+  namespace: nodered
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: data
