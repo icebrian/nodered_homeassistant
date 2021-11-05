@@ -67,7 +67,7 @@ spec:
     storage: 10Gi
   hostPath:
     path: /mnt/nas/nodered
-    type: Directory
+    #type: Directory
   persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
 ---
