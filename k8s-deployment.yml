@@ -38,7 +38,7 @@ spec:
       - env:
         - name: TZ
           value: ${TZ}
-        image: nodered/node-red
+        image: icebrian/nodered_ha
         imagePullPolicy: IfNotPresent
         name: node-red
         ports:
