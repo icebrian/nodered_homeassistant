@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations: []
+  annotations:
   name: nodered
   namespace: nodered
 spec:
@@ -57,7 +57,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  annotations: []
+  annotations:
   name: data
   namespace: nodered
 spec:
@@ -73,7 +73,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotations: []
+  annotations:
   name: data
   namespace: nodered
 spec:
