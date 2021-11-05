@@ -69,6 +69,7 @@ spec:
     path: data
     type: Directory
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
