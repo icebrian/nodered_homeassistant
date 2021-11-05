@@ -9,7 +9,7 @@ spec:
   ports:
   - name: nodered
     port: 1880
-    protocol: tcp
+    protocol: TCP
     #targetPort: 1880
   selector:
     app: nodered
@@ -44,7 +44,7 @@ spec:
         ports:
         - containerPort: 1880
           name: nodered
-          protocol: tcp
+          protocol: TCP
         volumeMounts:
         - mountPath: /data
           name: data
