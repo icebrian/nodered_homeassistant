@@ -52,7 +52,7 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: data
+          claimName: nodered
 ---
 apiVersion: v1
 kind: PersistentVolume
