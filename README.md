@@ -1,2 +1,2 @@
-# nodered_homeassistant
-Node-Red docker image prepared for Home Assistant
+# Node-Red for Home Assistant
+Node-Red docker image prepared for Home Assistant with Kubernetes dpeloyment file
