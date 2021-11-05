@@ -7,10 +7,10 @@ metadata:
   namespace: nodered
 spec:
   ports:
-  - name: nameme_01
+  - name: nodered
     port: 1880
     protocol: tcp
-    targetPort: 1880
+    #targetPort: 1880
   selector:
     app: nodered
   type: NodePort
