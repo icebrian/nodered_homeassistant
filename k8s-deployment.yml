@@ -102,8 +102,7 @@ spec:
       - backend:
           service:
             name: nodered
-            port:
-              name: 1880
+            port: 1880
         path: /
         pathType: Prefix
   tls:
