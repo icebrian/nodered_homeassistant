@@ -65,6 +65,7 @@ spec:
   capacity:
     storage: 10Gi
   hostPath:
+    #UIG:GID 1000:1000 writable
     path: /mnt/nas/nodered
     #type: Directory
   persistentVolumeReclaimPolicy: Retain
