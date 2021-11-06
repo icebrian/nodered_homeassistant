@@ -103,7 +103,7 @@ spec:
           service:
             name: nodered
             port:
-              name: http
+              name: 1880
         path: /
         pathType: Prefix
   tls:
