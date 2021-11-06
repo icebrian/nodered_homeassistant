@@ -85,3 +85,27 @@ spec:
       storage: 1Gi
   storageClassName: manual
   volumeName: nodered
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    kubernetes.io/ingress.class: nginx
+  name: nodered
+  namespace: nodered
+spec:
+  rules:
+  - host: nodered.mais.casa
+    http:
+      paths:
+      - backend:
+          service:
+            name: nodered
+            port:
+              name: http
+        path: /
+  tls:
+  - hosts:
+    - nodered.mais.casa
+    secretName: nodered-tls
