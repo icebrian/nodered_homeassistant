@@ -105,6 +105,7 @@ spec:
             port:
               name: http
         path: /
+        pathType: Prefix
   tls:
   - hosts:
     - nodered.mais.casa
